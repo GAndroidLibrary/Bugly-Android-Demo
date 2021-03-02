@@ -1,9 +1,10 @@
 package com.tencent.bugly.demo;
 
 import com.tencent.bugly.crashreport.CrashReport;
+import com.tencent.bugly.demo.mockcrash.CrashMock;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnTestJavaCrash: // 点击测试Java Crash
-                CrashReport.testJavaCrash();
+                CrashMock.mockJavaCrash();
                 break;
             case R.id.btnTestANRCrash: // 点击测试ANR Crash
                 CrashReport.testANRCrash();

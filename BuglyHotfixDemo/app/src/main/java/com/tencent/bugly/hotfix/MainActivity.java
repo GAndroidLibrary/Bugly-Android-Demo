@@ -5,14 +5,13 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.devilwwj.jni.TestJNI;
 import com.tencent.bugly.beta.Beta;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 如果想更新so，可以将System.loadLibrary替换成Beta.loadLibrary
      */
     static {
-        Beta.loadLibrary("mylib");
+        Beta.loadLibrary("native-lib");
     }
 
     private TextView tvCurrentVersion;
@@ -81,8 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Beta.applyTinkerPatch(getApplicationContext(), Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk");
                 break;
             case R.id.btnLoadLibrary: // 本地加载so库测试
-                TestJNI testJNI = new TestJNI();
-                testJNI.createANativeCrash();
+                NativeCrashJni.getInstance().createNativeCrash();
                 break;
             case R.id.btnDownloadPatch:
                 Beta.downloadPatch();

@@ -7,10 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/> <!-- <uses-permission android:name="android.permission.GET_TASKS" /> -->
 
     <!--Bugly升级SDK权限配置结束-->
 
@@ -19,11 +15,10 @@
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
-            android:supportsRtl="true"
-            android:debuggable="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:networkSecurityConfig="@xml/network_security_config">
         <activity android:name=".MainActivity">
-            <intent-filter>
+            <intent-filter>`
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -39,7 +34,7 @@
 
         <!--API 24以上配置-->
         <provider
-                android:name="android.support.v4.content.FileProvider"
+                android:name="androidx.core.content.FileProvider"
                 android:authorities="com.tencent.bugly.hotfix.fileProvider"
                 android:exported="false"
                 android:grantUriPermissions="true">

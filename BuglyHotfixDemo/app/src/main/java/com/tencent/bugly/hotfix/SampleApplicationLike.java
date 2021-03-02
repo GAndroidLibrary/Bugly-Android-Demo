@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.multidex.MultiDex;
+import androidx.multidex.MultiDex;
 import android.widget.Toast;
 
 //import com.meituan.android.walle.WalleChannelReader;
@@ -14,7 +14,6 @@ import com.tencent.bugly.beta.Beta;
 import com.tencent.bugly.beta.interfaces.BetaPatchListener;
 import com.tencent.tinker.entry.DefaultApplicationLike;
 
-import com.tencent.tinker.entry.DefaultApplicationLike;
 import java.util.Locale;
 
 /**
@@ -97,7 +96,7 @@ public class SampleApplicationLike extends DefaultApplicationLike {
         // String channel = WalleChannelReader.getChannel(getApplication());
         // Bugly.setAppChannel(getApplication(), channel);
         // 这里实现SDK初始化，appId替换成你的在Bugly平台申请的appId
-        Bugly.init(getApplication(), "900029763", true);
+        Bugly.init(getApplication(), "e0b1ba785f", true);
     }
 
 
